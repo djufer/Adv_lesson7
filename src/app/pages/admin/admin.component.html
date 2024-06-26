@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="left-block col-2">
+      <div class="black-block">
+        <p>Blogs</p>
+      </div>
+    </div>
+    <div class="right-block col-10">
+      <form action="" class="mb-3">
+        <div class="block-title">
+          <input
+            class="form-control"
+            type="text"
+            name="title"
+            placeholder="title here.."
+            [(ngModel)]="title"
+          />
+        </div>
+        <div class="block-t-area">
+          <textarea
+            class="form-control"
+            name="textarea"
+            id=""
+            cols="30"
+            rows="10"
+            placeholder="text here.."
+            [(ngModel)]="text"
+          ></textarea>
+        </div>
+        <div class="block-author">
+          <input
+            class="form-control"
+            type="text"
+            name="author"
+            placeholder="author here.."
+            [(ngModel)]="author"
+          />
+        </div>
+        <button *ngIf="!editStatus" (click)="addBlog()" class="btn btn-dark">
+          Add
+        </button>
+        <button *ngIf="editStatus" (click)="saveBlog()" class="btn btn-light">
+          Save edit
+        </button>
+      </form>
+      <!-- ------------------------------------------------- -->
+      <table class="table mt-3">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Text</th>
+            <th>Author</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blog of adminBlogs; index as i">
+            <td>{{ i + 1 }}</td>
+            <td>{{ blog.title }}</td>
+            <td>{{ blog.text }}</td>
+            <td>{{ blog.author }}</td>
+            <td>
+              <button (click)="editBlog(blog, i)" class="btn btn-dark">
+                Edit
+              </button>
+            </td>
+            <td>
+              <button (click)="deleteBlog(blog)" class="btn btn-dark" [disabled]="editStatus">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

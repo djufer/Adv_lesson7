@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row mt-1">
+
+    <div *ngFor="let blog of blogPageBlogs" class="one-blog col-4 px-3">
+      <div class="img-block">
+        <img src="../../../assets/img/IMG-worlds-of-adventure.webp" alt="" />
+      </div>
+      <div class="author-block pt-3">
+        <span class="text-primary">{{ blog.author }}</span>
+      </div>
+      <div class="title-block">
+        <h4 class="fw-bold"> {{ blog.title }}</h4>
+      </div>
+      <div class="blog-text">
+        {{ blog.text }}
+      </div>
+    </div>
+    
+  </div>
+</div>

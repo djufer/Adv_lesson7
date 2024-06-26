@@ -1,0 +1,14 @@
+.container-fluid {
+  background-color: rgb(47, 42, 42);
+  height: 60px;
+}
+a {
+  transition: filter 0.4s;
+  filter: brightness(0.6);
+}
+a:hover {
+  filter: brightness(1);
+}
+.active {
+  filter: brightness(1);
+}
